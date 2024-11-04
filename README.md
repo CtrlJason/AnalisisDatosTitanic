@@ -7,16 +7,16 @@ Asegúrate de tener instalado lo siguiente en tu computadora:
 2. pip (normalmente viene incluso en Python 3)
 3. Extensión Jupyter Notebook para Visual Studio Code o un IDE con esto incluido
 ##### Estructura de carpetas del proyecto
----
+```
 Titanic/
 ├── data/
-│   └── train.csv     # Dataset de pasajeros del Titanic
+│   └── train.csv     # Dataset de pasajeros del Titanic
 ├── notebooks/
-│   └── main.ipynb    # Notebook principal
-├── scripts/          
-│   └── main.py       # Scripts principal Python
-└── README.md          # Documentación del proyecto
----
+│   └── main.ipynb    # Notebook principal
+├── scripts/          
+│   └── main.py       # Script principal Python
+└── README.md         # Documentación del proyecto
+```
 
 ### Pasos para ejecutar el proyecto
 
