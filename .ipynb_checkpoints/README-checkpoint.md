@@ -6,8 +6,10 @@ Asegúrate de tener instalado lo siguiente en tu computadora:
 1. Python (versión 3.6 o superior)
 2. pip (normalmente viene incluso en Python 3)
 3. Extensión Jupyter Notebook para Visual Studio Code o un IDE con esto incluido
-##### Estructura de carpetas del proyecto
----
+
+### Pasos para ejecutar el proyecto
+
+Estructura de carpetas del proyecto
 Titanic/
 ├── data/
 │   └── train.csv     # Dataset de pasajeros del Titanic
@@ -16,12 +18,8 @@ Titanic/
 ├── scripts/          
 │   └── main.py       # Scripts principal Python
 └── README.md          # Documentación del proyecto
----
-
-### Pasos para ejecutar el proyecto
 
 1. Crear un entorno virtual para manejar las dependencias del proyecto, esto es opcional, sin embargo, es buena práctica realizarlo.
-
 ```
 # Ejecuta los comandos en tu terminal dentro del proyecto
 
