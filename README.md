@@ -29,6 +29,7 @@ Titanic/
 python -m venv venv
 
 # Activar el entorno virtual
+
 # En Windows
 venv\Scripts\activate
 
@@ -44,7 +45,7 @@ pip install jupyter
 ```
 3. Ejecuta jupyter para poder iniciar el protecto
 ```
-# Ejecuta los comandos en tu terminal dentro del proyecto
+# Ejecuta el siguiente comando para inicializar jupyter
 jupyter lab
 ```
 
