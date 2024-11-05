@@ -31,6 +31,7 @@ python -m venv venv
 # Activar el entorno virtual
 # En Windows
 venv\Scripts\activate
+
 # En macOS/Linux
 source venv/bin/activate
 ```
@@ -38,12 +39,12 @@ source venv/bin/activate
 2. Instala las Dependencias
 ```
 # Ejecuta el comando en tu terminal dentro del proyecto
-pip install pandas jupyter
+pip install pandas
 pip install jupyter
 ```
 3. Ejecuta jupyter para poder iniciar el protecto
 ```
-# Ejecuta el comando en tu terminal dentro del proyecto
+# Ejecuta los comandos en tu terminal dentro del proyecto
 jupyter lab
 ```
 
@@ -80,20 +81,20 @@ df = pd.read_csv('data/train.csv')
 
 1. Se tomó la columna Name y con base a ella se crearon dos nuevas columnas, FirstName y LastName
 
-***Separamos los nombres***
-
-```
-# Separamos los nombre por comas con el metodo split()
-
-df['Name'].str.split(',')
-```
-
 ***Convertimos todos los nombre a minúsculas para trabajar más fácil con ellos***
 
 ```
 # Transformamos los datos a string y luego los convertimos a minusculas con el metodo lower()
 
 df['Name'] = df['Name'].str.lower()
+```
+
+***Separamos los nombres***
+
+```
+# Separamos los nombre por comas con el metodo split()
+
+df['Name'].str.split(',')
 ```
 
 ***Creamos las columnas FirsName y LastName***
