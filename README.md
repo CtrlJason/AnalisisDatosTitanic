@@ -234,7 +234,7 @@ plt.ylabel("Frecuencia")  # Etiqueta del eje Y
 plt.savefig("viz/age_distribution.png")  # Guarda el gráfico en un archivo
 plt.show()  # Muestra el gráfico
 ```
-![](Titanic\visualizaciones\age_distribution.png)
+![]([Titanic\visualizaciones\age_distribution.png](https://github.com/CtrlJason/AnalisisDatosTitanic/blob/main/Titanic/visualizaciones/age_distribution.png?raw=true))
 
 2. Supervivencia por Género
 ```
@@ -247,7 +247,7 @@ plt.legend(["No Sobrevivió", "Sobrevivió"])  # Leyenda para los valores de Sur
 plt.savefig("viz/survival_by_gender.png")  # Guarda el gráfico en un archivo
 plt.show()  # Muestra el gráfico
 ```
-![](Titanic\visualizaciones\heat_map_of_correlations.png)
+![](https://github.com/CtrlJason/AnalisisDatosTitanic/blob/main/Titanic/visualizaciones/survival_by_gender.png?raw=true)
 
 3. Supervivencia por Clase de Pasajero
 ```
@@ -260,7 +260,7 @@ plt.legend(["No Sobrevivió", "Sobrevivió"])  # Leyenda para los valores de Sur
 plt.savefig("viz/survival_by_class.png")  # Guarda el gráfico en un archivo
 plt.show()  # Muestra el gráfico
 ```
-![](Titanic\visualizaciones\relationship_between_age_and_rate.png)
+![](https://github.com/CtrlJason/AnalisisDatosTitanic/blob/main/Titanic/visualizaciones/survival_by_passenger_class.png?raw=true)
 
 4. Relación entre Edad y Tarifa (Fare)
 ```
@@ -275,7 +275,7 @@ plt.legend(["No Sobrevivió", "Sobrevivió"])  # Leyenda para los valores de Sur
 plt.savefig("viz/age_vs_fare.png")  # Guarda el gráfico en un archivo
 plt.show()  # Muestra el gráfico
 ```
-![](Titanic\visualizaciones\survival_by_gender.png)
+![](https://github.com/CtrlJason/AnalisisDatosTitanic/blob/main/Titanic/visualizaciones/relationship_between_age_and_rate.png?raw=true)
 
 5. Mapa de Calor de Correlaciones
 ```
@@ -286,5 +286,5 @@ plt.title("Mapa de Calor de Correlaciones")
 plt.savefig("viz/heatmap_correlation.png")
 plt.show()
 ```
-![](Titanic\visualizaciones\survival_by_passenger_class.png)
+![](https://github.com/CtrlJason/AnalisisDatosTitanic/blob/main/Titanic/visualizaciones/heat_map_of_correlations.png?raw=true)
 
