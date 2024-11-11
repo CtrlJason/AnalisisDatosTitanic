@@ -12,9 +12,13 @@ Titanic/
 ├── data/
 │   └── train.csv     # Dataset de pasajeros del Titanic
 ├── notebooks/
-│   └── main.ipynb    # Notebook principal
+│   └── main.ipynb    # Notebook principal (Lo utilizamos para realizar el analisis del proyecto)
+├── visualizaciones/          # Carpeta de visualizaciones
+│   ├── titanic_visuals.ipynb # Cuaderno con los gráficos
+│   ├── age_distribution.png
+│   └── survival_by_class.png
 ├── scripts/          
-│   └── main.py       # Script principal Python
+│   └── main.py       # Script principal Python (No se utiliza en el proyecto, sin embargo puede ser de utilidad en un futuro)
 └── README.md         # Documentación del proyecto
 ```
 
@@ -51,9 +55,20 @@ jupyter lab
 
 ## Análisis del Dataset
 1. En este proyecto utilizamos un dataset de pasajeros del Titanic, que tiene 891 registros y 12 columnas, con información sobre cada pasajero, como su nombre, la clase, el género, la edad, el número de hermanos o cónyuges y el precio del pasaje.
-2. Los tipos de variables que existen son: string (cadena de caracteres), int (números enteros) y floats (números flotantes).
-3. En este caso de los tipos de datos los más relevantes serían los strings, ya que con ellos hacemos la separación de los datos, en este caso de los nombres de los pasajeros; sin embargo, para el análisis de supervivencia el tipo de dato más relevante serían los int.
-4. En algunas columnas hay datos nulos, estas se deben tratar como un promedio general de todos los datos de la columna para realizar un aproximado.
+Para mostrar todas las columnas utilizamos el siguiente codigo: df.describe()
+``` df.describe()  # Estadísticas descriptivas para columnas numéricas ```
+3. Los tipos de variables que existen son:
+   - string (cadena de caracteres) Las cadenas de texto las utilizamos mayormente para realizar conversión del texto, ejemplo: pasar de mayúsculas a minúsculas JUAN -> juan y mucho más
+   - int (números enteros) Los numeros enteros los usamos comúnmente para realizar operaciones matemáticas como sumas, restas, multiplicaciones o divisiones, adicionalmente, pero se usan más que todo si queremos saber el resultado redondeado de una operación, como la cantidad de pasajeros.
+   - floats (números flotantes) Utilizamos los flotantes para realizar operaciones matemáticas o sacar resultados donde necesitamos saber los decimales como por ejemplo saber el precio de una zona del barco.
+4. Los tipos de datos, los más relevantes serían los strings, ya que con ellos hacemos la separación de los datos, en este caso de los nombres de los pasajeros; sin embargo, para el análisis de supervivencia el tipo de dato más relevante serían los int.
+Para mostrar los tipos de datos utilizamos comunmente el siguiente codigo: df.info()
+``` df.info()  # Muestra los tipos de datos y valores nulos  ```
+6. En algunas columnas hay datos nulos, estas se deben ser tratados, en este caso podrían ser convertidos como un promedio general de todos los datos de una columna, por ejemplo la edad de los pasajeros para realizar un aproximado.
+Para ver cuanto nulos tenemos por columnas utilizamos el siguiente codigo: df.isnull().sum()
+``` df.isnull().sum()  # Recuento de valores nulos por columna ```
+8. En caso de que haya columnas duplicadas, lo correcto sería eliminarlos si no son requeridas, también se puede realizar con valores, pero hay que tener cuidado, ya que puede que no puedan servir de alguna manera en un fututo, lo recomendable es transformarlos al final.
+
 
 Las columnas principales incluyen:
 
@@ -99,6 +114,7 @@ df['Name'].str.split(',')
 ```
 
 ***Creamos las columnas FirsName y LastName***
+Se crean para poder visualizar la información de los pasajeros de una manera más estructurada, adicionalmente si queremos hacer consultas solo de los primeros nombres es mucho más sencillo trabajar con los datos, por si queremos saber cuantas personas hay en el barco el nombre *Juan* por ejemplo.
 
 ```
 # Con el metodo get() obtenemos los datos segun su indice
@@ -134,6 +150,7 @@ df['Name'].str.split(',').str.get(1).str.split('.').str.get(0)
 ```
 
 ***Creamos la columna "Status" para almacenar los títulos***
+Creamos esta columna para saber las profesiones o rangos de cada pasajero, esto con el fin de determinar con exactitud cuantas personas con un rango determinando existen, compararlo posteriormente con otros rangos o saber qué rangos pertenecían más a ciertas clases del barco.
 
 ```
 df['Status'] = df['Name'].str.split(',').str.get(1).str.split('.').str.get(0)
@@ -152,12 +169,122 @@ df[['Status', 'FirstName', 'LastName']].head()
 
 ### Carga
 
-1. Guardamos el DataFrame en un archivo cvs
+1. Guardamos el DataFrame en un archivo cvs en la carpeta data de nuestro proyecto
 
 ```
-# Guardar el DataFrame transformado como un archivo CSV
+# Guardar el DataFrame transformado como un archivo CSV en la carpeta data de nuestro proyecto
 df.to_csv('data/transformed_data.csv')
 ```
 
 2. Guardamos la información en la una base de datos
 Se realizará en un futuro.
+
+### Visualización
+
+Para la visualización se utilizaron las bibliotecas ***Matplotlib*** y ***Seaborn***, podemos utilizar la libreria matplotlib; sin embargo, con seaborn, los gráficos se visualizan de una forma mucho más atractiva y además son más fáciles de usar.
+
+### Análisis visual de los Datos
+Primero importamos las librerías ***Matplotlib*** y ***Seaborn***
+```
+import matplotlib.pyplot as plt
+import seaborn as sns
+```
+
+#### Ejemplo utilizando Matplotlib
+```
+x = [1, 2, 3, 4, 5]
+y = [2, 4, 6, 8, 10]
+
+plt.plot(x, y)
+plt.title("Gráfico de Línea")
+plt.xlabel("Eje X")
+plt.ylabel("Eje Y")
+plt.show()
+```
+![](https://i.ibb.co/ygsZcFn/imagen-2024-11-11-173119747.png)
+
+#### Ejemplo utilizando Seaborn
+```
+data = sns.load_dataset("tips")
+
+# Gráfico de dispersión con regresión
+sns.regplot(x="total_bill", y="tip", data=data)
+plt.title("Relación entre la cuenta total y la propina")
+plt.show()
+```
+![](https://i.ibb.co/N6dgW9N/imagen-2024-11-11-172721389.png)
+
+#### Graficas
+
+Se realizan 5 gráficas para poder visualizar lo siguiente: Distribución de la Edad, Supervivencia por Género, Supervivencia por Clase de Pasajero, Relación entre Edad y Tarifa (Fare) y Mapa de Calor de Correlaciones, para cada una se utilizarán varias gráficas, serán 5 para representar correctamente cada uno de estos puntos
+Las gráficas que utilizaremos para cada una serán:
+- *Hisograma* Para Distribución de la Edad
+- *Countplot* Para Supervivencia por Género
+- *Countplot* Nuevamente para Supervivencia por Clase de Pasajero
+- *scatterplot* Relación entre Edad y Tarifa (Fare)
+- *Matriz de Correlación* Para Mapa de Calor de Correlaciones
+
+1. Distribución de la Edad
+```
+plt.figure(figsize=(10, 6))  # Establece el tamaño de la figura
+sns.histplot(df['Age'].dropna(), bins=30, kde=True)  # Crea el histograma con KDE
+plt.title("Distribución de Edad de los Pasajeros")  # Título del gráfico
+plt.xlabel("Edad")  # Etiqueta del eje X
+plt.ylabel("Frecuencia")  # Etiqueta del eje Y
+plt.savefig("viz/age_distribution.png")  # Guarda el gráfico en un archivo
+plt.show()  # Muestra el gráfico
+```
+![](Titanic\visualizaciones\age_distribution.png)
+
+2. Supervivencia por Género
+```
+plt.figure(figsize=(8, 6))  # Establece el tamaño de la figura
+sns.countplot(x='Sex', hue='Survived', data=df)  # Crea el countplot
+plt.title("Supervivencia por Género")  # Título del gráfico
+plt.xlabel("Género")  # Etiqueta del eje X
+plt.ylabel("Número de Pasajeros")  # Etiqueta del eje Y
+plt.legend(["No Sobrevivió", "Sobrevivió"])  # Leyenda para los valores de Survived
+plt.savefig("viz/survival_by_gender.png")  # Guarda el gráfico en un archivo
+plt.show()  # Muestra el gráfico
+```
+![](Titanic\visualizaciones\heat_map_of_correlations.png)
+
+3. Supervivencia por Clase de Pasajero
+```
+plt.figure(figsize=(8, 6))  # Establece el tamaño de la figura
+sns.countplot(x='Pclass', hue='Survived', data=df)  # Crea el countplot por clase y supervivencia
+plt.title("Supervivencia por Clase de Pasajero")  # Título del gráfico
+plt.xlabel("Clase")  # Etiqueta del eje X
+plt.ylabel("Número de Pasajeros")  # Etiqueta del eje Y
+plt.legend(["No Sobrevivió", "Sobrevivió"])  # Leyenda para los valores de Survived
+plt.savefig("viz/survival_by_class.png")  # Guarda el gráfico en un archivo
+plt.show()  # Muestra el gráfico
+```
+![](Titanic\visualizaciones\relationship_between_age_and_rate.png)
+
+4. Relación entre Edad y Tarifa (Fare)
+```
+dfc = df.copy()
+df['Survived'] = df['Survived'].astype('category')
+plt.figure(figsize=(10, 6))  # Establece el tamaño de la figura
+sns.scatterplot(x='Age', y='Fare', hue='Survived', data=df)  # Crea el scatterplot
+plt.title("Relación entre Edad y Tarifa")  # Título del gráfico
+plt.xlabel("Edad")  # Etiqueta del eje X
+plt.ylabel("Tarifa")  # Etiqueta del eje Y
+plt.legend(["No Sobrevivió", "Sobrevivió"])  # Leyenda para los valores de Survived
+plt.savefig("viz/age_vs_fare.png")  # Guarda el gráfico en un archivo
+plt.show()  # Muestra el gráfico
+```
+![](Titanic\visualizaciones\survival_by_gender.png)
+
+5. Mapa de Calor de Correlaciones
+```
+plt.figure(figsize=(10, 8))
+correlation_matrix = df[['Pclass', 'Survived', 'Age', 'SibSp', 'Parch', 'Fare']].corr()
+sns.heatmap(correlation_matrix, annot=True, cmap="coolwarm")
+plt.title("Mapa de Calor de Correlaciones")
+plt.savefig("viz/heatmap_correlation.png")
+plt.show()
+```
+![](Titanic\visualizaciones\survival_by_passenger_class.png)
+
