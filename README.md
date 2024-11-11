@@ -15,8 +15,11 @@ Titanic/
 │   └── main.ipynb    # Notebook principal (Lo utilizamos para realizar el analisis del proyecto)
 ├── visualizaciones/          # Carpeta de visualizaciones
 │   ├── titanic_visuals.ipynb # Cuaderno con los gráficos
-│   ├── age_distribution.png
-│   └── survival_by_class.png
+│   ├── age_distribution.png # (Distribución de Edad de los Pasajeros)
+│   ├── survival_by_gender.png # (Supervivencia por Género)
+│   ├── survival_by_class.png # ("Supervivencia por Clase de Pasajero")
+│   ├── relationship_between_age_and_rate.png # ("Relación entre Edad y Tarifa")
+│   └── heat_map_of_correlations.png # ("Mapa de Calor de Correlaciones")
 ├── scripts/          
 │   └── main.py       # Script principal Python (No se utiliza en el proyecto, sin embargo puede ser de utilidad en un futuro)
 └── README.md         # Documentación del proyecto
@@ -214,7 +217,7 @@ plt.show()
 ```
 ![](https://i.ibb.co/N6dgW9N/imagen-2024-11-11-172721389.png)
 
-#### Graficas
+#### Gráficas
 
 Se realizan 5 gráficas para poder visualizar lo siguiente: Distribución de la Edad, Supervivencia por Género, Supervivencia por Clase de Pasajero, Relación entre Edad y Tarifa (Fare) y Mapa de Calor de Correlaciones, para cada una se utilizarán varias gráficas, serán 5 para representar correctamente cada uno de estos puntos
 Las gráficas que utilizaremos para cada una serán:
@@ -223,6 +226,16 @@ Las gráficas que utilizaremos para cada una serán:
 - *Countplot* Nuevamente para Supervivencia por Clase de Pasajero
 - *scatterplot* Relación entre Edad y Tarifa (Fare)
 - *Matriz de Correlación* Para Mapa de Calor de Correlaciones
+
+#### Para qué sirve cada uno y cuál es su función
+
+***Histograma:*** Sirve para visualizar la distribución de una variable numérica (como la edad). Muestra cómo los valores se agrupan en intervalos, ayudando a identificar patrones como concentraciones y dispersiones.
+
+***Countplot:*** Se usa para contar y comparar frecuencias de categorías en una variable. Por ejemplo, puedes ver cuántas personas sobrevivieron o no, agrupadas por género o clase, lo cual ayuda a analizar comparaciones y tendencias entre categorías.
+
+***Scatterplot:*** Muestra la relación entre dos variables numéricas. Al graficar puntos en función de dos variables, permite ver si hay una correlación o tendencia entre ellas, como entre edad y tarifa.
+
+***Matriz de Correlación:*** Calcula y visualiza la fuerza de las relaciones entre múltiples variables numéricas. Al mostrar un mapa de calor, ayuda a ver qué variables están relacionadas y la intensidad de esa relación, útil para análisis predictivos o descriptivos.
 
 1. Distribución de la Edad
 ```
@@ -234,7 +247,8 @@ plt.ylabel("Frecuencia")  # Etiqueta del eje Y
 plt.savefig("viz/age_distribution.png")  # Guarda el gráfico en un archivo
 plt.show()  # Muestra el gráfico
 ```
-![]([Titanic\visualizaciones\age_distribution.png](https://github.com/CtrlJason/AnalisisDatosTitanic/blob/main/Titanic/visualizaciones/age_distribution.png?raw=true))
+Podemos visualizar en el grafico que la mayor cantidad de personas no sobrevivientes fue mas de hombres que de mujeres, aproximadamente 500 hombres no logragon sobrevivir y aproximada mente 230 mujeres no lograron sobrevivir
+![](https://github.com/CtrlJason/AnalisisDatosTitanic/blob/main/Titanic/visualizaciones/age_distribution.png?raw=true)
 
 2. Supervivencia por Género
 ```
@@ -247,7 +261,9 @@ plt.legend(["No Sobrevivió", "Sobrevivió"])  # Leyenda para los valores de Sur
 plt.savefig("viz/survival_by_gender.png")  # Guarda el gráfico en un archivo
 plt.show()  # Muestra el gráfico
 ```
+En este grafico se puede ver que la clase mas afectada fue la 3 que podria decirse que es la clase mas baja en el titanic, aproximadamente no sobrevivieron mas de 350 personas en su lugar la clase con menos perdidas fue la 1 con aproximadamente 80 no sobrevivientes
 ![](https://github.com/CtrlJason/AnalisisDatosTitanic/blob/main/Titanic/visualizaciones/survival_by_gender.png?raw=true)
+
 
 3. Supervivencia por Clase de Pasajero
 ```
@@ -260,6 +276,7 @@ plt.legend(["No Sobrevivió", "Sobrevivió"])  # Leyenda para los valores de Sur
 plt.savefig("viz/survival_by_class.png")  # Guarda el gráfico en un archivo
 plt.show()  # Muestra el gráfico
 ```
+En este grafco podemos ver que las personas que compraron el boleto mas costoso fueron las unicas que lograron sobrevivir a eceptcion de las personas que compraron el mas barato, se puede decir que mientas mayor sea el costo del boleto, mas probabilidades de sobrevivir
 ![](https://github.com/CtrlJason/AnalisisDatosTitanic/blob/main/Titanic/visualizaciones/survival_by_passenger_class.png?raw=true)
 
 4. Relación entre Edad y Tarifa (Fare)
@@ -275,6 +292,7 @@ plt.legend(["No Sobrevivió", "Sobrevivió"])  # Leyenda para los valores de Sur
 plt.savefig("viz/age_vs_fare.png")  # Guarda el gráfico en un archivo
 plt.show()  # Muestra el gráfico
 ```
+
 ![](https://github.com/CtrlJason/AnalisisDatosTitanic/blob/main/Titanic/visualizaciones/relationship_between_age_and_rate.png?raw=true)
 
 5. Mapa de Calor de Correlaciones
