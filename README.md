@@ -247,7 +247,7 @@ plt.ylabel("Frecuencia")  # Etiqueta del eje Y
 plt.savefig("viz/age_distribution.png")  # Guarda el gráfico en un archivo
 plt.show()  # Muestra el gráfico
 ```
-Podemos visualizar en el grafico que la mayor cantidad de personas no sobrevivientes fue mas de hombres que de mujeres, aproximadamente 500 hombres no logragon sobrevivir y aproximada mente 230 mujeres no lograron sobrevivir
+En este gráfico podemos notar que hay una mayor cantidad de pasajeros entre los 20 y los 30 años
 ![](https://github.com/CtrlJason/AnalisisDatosTitanic/blob/main/Titanic/visualizaciones/age_distribution.png?raw=true)
 
 2. Supervivencia por Género
@@ -261,7 +261,7 @@ plt.legend(["No Sobrevivió", "Sobrevivió"])  # Leyenda para los valores de Sur
 plt.savefig("viz/survival_by_gender.png")  # Guarda el gráfico en un archivo
 plt.show()  # Muestra el gráfico
 ```
-En este grafico se puede ver que la clase mas afectada fue la 3 que podria decirse que es la clase mas baja en el titanic, aproximadamente no sobrevivieron mas de 350 personas en su lugar la clase con menos perdidas fue la 1 con aproximadamente 80 no sobrevivientes
+Podemos visualizar en el grafico que la mayor cantidad de personas no sobrevivientes fue mas de hombres que de mujeres, aproximadamente 500 hombres no logragon sobrevivir y aproximada mente 230 mujeres no lograron sobrevivir
 ![](https://github.com/CtrlJason/AnalisisDatosTitanic/blob/main/Titanic/visualizaciones/survival_by_gender.png?raw=true)
 
 
@@ -276,7 +276,7 @@ plt.legend(["No Sobrevivió", "Sobrevivió"])  # Leyenda para los valores de Sur
 plt.savefig("viz/survival_by_class.png")  # Guarda el gráfico en un archivo
 plt.show()  # Muestra el gráfico
 ```
-En este grafco podemos ver que las personas que compraron el boleto mas costoso fueron las unicas que lograron sobrevivir a eceptcion de las personas que compraron el mas barato, se puede decir que mientas mayor sea el costo del boleto, mas probabilidades de sobrevivir
+En este grafico se puede ver que la clase mas afectada fue la 3 que podria decirse que es la clase mas baja en el titanic, aproximadamente no sobrevivieron mas de 350 personas en su lugar la clase con menos perdidas fue la 1 con aproximadamente 80 no sobrevivientes
 ![](https://github.com/CtrlJason/AnalisisDatosTitanic/blob/main/Titanic/visualizaciones/survival_by_passenger_class.png?raw=true)
 
 4. Relación entre Edad y Tarifa (Fare)
@@ -292,7 +292,7 @@ plt.legend(["No Sobrevivió", "Sobrevivió"])  # Leyenda para los valores de Sur
 plt.savefig("viz/age_vs_fare.png")  # Guarda el gráfico en un archivo
 plt.show()  # Muestra el gráfico
 ```
-
+En este grafco podemos ver que las personas que compraron el boleto mas costoso fueron las unicas que lograron sobrevivir a eceptcion de las personas que compraron el mas barato, se puede decir que mientas mayor sea el costo del boleto, mas probabilidades de sobrevivir
 ![](https://github.com/CtrlJason/AnalisisDatosTitanic/blob/main/Titanic/visualizaciones/relationship_between_age_and_rate.png?raw=true)
 
 5. Mapa de Calor de Correlaciones
@@ -304,5 +304,5 @@ plt.title("Mapa de Calor de Correlaciones")
 plt.savefig("viz/heatmap_correlation.png")
 plt.show()
 ```
+En este gráfico podemos visualizar que mientras mayor sea la edad se reduce la posibilidad de supervivencia, también que entre menor sea la clase, igualmente menor probabilidad de supervivencia
 ![](https://github.com/CtrlJason/AnalisisDatosTitanic/blob/main/Titanic/visualizaciones/heat_map_of_correlations.png?raw=true)
-
